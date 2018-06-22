@@ -17,10 +17,6 @@ public class WicketApplication extends WebApplication {
 
 	private Connection conexao;
 
-	public Connection getConexao() {
-		return conexao;
-	}
-
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
@@ -47,9 +43,13 @@ public class WicketApplication extends WebApplication {
 			throw new UnsupportedOperationException(e.getMessage());
 		}
 		try {
-			return DriverManager.getConnection("jdbc:postgresql://localhost:5432/meusite", "user", "pass");
+			return DriverManager.getConnection("jdbc:postgresql://localhost:5432/meusite", "postgres", "PASS");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public Connection getConexao() {
+		return conexao;
 	}
 }

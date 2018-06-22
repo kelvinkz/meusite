@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ContatoDAO {
 
-	private static final String INSERT_SQL = "INSERT INTO CONTATO (NOME, EMAIL, TELEFONE) VALUES (?, ?, ?)";
+	private static final String INSERT_SQL = "INSERT INTO Contato (nome, email, telefone, estadoCivil) VALUES (?, ?, ?, ?)";
 	private Connection conexao;
 
 	public ContatoDAO(Connection conexao) {
@@ -20,6 +20,8 @@ public class ContatoDAO {
 			ps.setString(1, contato.getNome());
 			ps.setString(2, contato.getEmail());
 			ps.setString(3, contato.getTelefone());
+			ps.setString(4, contato.getEstadoCivil().getLabel());
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {

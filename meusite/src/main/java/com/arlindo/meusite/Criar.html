@@ -7,6 +7,7 @@
 <body>
 	<wicket:extend>
 		<h1>Criar Novo Contato</h1>
+		<div wicket:id="feedbackMessage"></div>
 		<form wicket:id="formularioContato">
 			<input wicket:id="nome" type="text" placeholder="Nome" />
 			<br />
@@ -14,6 +15,9 @@
 			<br />
 			<input wicket:id="telefone" type="text" placeholder="Telefone" />
 			<br />
+			<select wicket:id="estadoCivil">
+				<option></option>
+			</select>
 			<button type="submit" name="submit">Salvar</button>
 		</form>
 	</wicket:extend>
